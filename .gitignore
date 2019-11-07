@@ -1,3 +1,4 @@
 .idea/*
 target
 javatutorials.iml
+.gitignore
