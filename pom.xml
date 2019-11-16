@@ -12,6 +12,7 @@
       <module>parent</module>
       <module>netty</module>
       <module>Concurrent</module>
+      <module>Basic</module>
   </modules>
 
   <name>java-tutorials</name>
