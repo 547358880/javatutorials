@@ -12,11 +12,8 @@
       <module>parent</module>
       <module>netty</module>
       <module>Concurrent</module>
-<<<<<<< HEAD
       <module>Basic</module>
-=======
       <module>on-java8</module>
->>>>>>> 3a5ae2f58f281e56cabae47d32788d2c2e1ab6a3
   </modules>
 
     <properties>
