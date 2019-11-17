@@ -10,7 +10,9 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.timeout.IdleStateHandler;
 
-public class UptimeClient
+import java.util.concurrent.TimeUnit;
+
+public class UptimeClient1
 {
     static final String HOST = System.getProperty("host", "localhost");
 
@@ -24,13 +26,12 @@ public class UptimeClient
 
     private static final UptimeClientHandler handler = new UptimeClientHandler();
 
-    private static final Bootstrap b = new Bootstrap();
 
-    public static void main(String[] args) throws Exception
-    {
+    public static void start() throws Exception {
+
+        Bootstrap b = new Bootstrap();
+
         EventLoopGroup group = new NioEventLoopGroup();
-
-        System.out.println("Current thread is : " + Thread.currentThread().getName());
 
         b.group(group)
                 .channel(NioSocketChannel.class)
@@ -39,32 +40,23 @@ public class UptimeClient
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception
                     {
-                        ch.pipeline().addLast(
-                                new IdleStateHandler(READ_TIMEOUT, 0, READ_TIMEOUT),
-                                handler);
                     }
                 });
 
-
-//        b.connect().sync();
-        b.connect();
-
-//        System.out.println("dsadasd");
-
-//        System.out.println("dasdad");
-//            b.connect();
-    }
-
-    static void connect()
-    {
-        b.connect().addListener(new ChannelFutureListener() {
-            @Override
-            public void operationComplete(ChannelFuture future) throws Exception {
-                if (future.cause() != null) {
-                    handler.startTime = -1;
-                    handler.println("Failed to connect: " + future.cause());
-                }
+        ChannelFuture future = b.connect().sync();
+        //客户端断线重连逻辑
+        future.addListener((ChannelFutureListener) future1 -> {
+            if (future1.isSuccess()) {
+                System.out.println("连接Netty服务端成功");
+            } else {
+                System.out.println("连接失败，进行断线重连");
+//                future.channel().eventLoop().schedule(() -> start(), 20, TimeUnit.SECONDS);  // ?阻塞线程
             }
         });
+    }
+
+    public static void main(String[] args) throws Exception
+    {
+        start();
     }
 }

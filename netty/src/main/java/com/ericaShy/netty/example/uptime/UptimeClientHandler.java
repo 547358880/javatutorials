@@ -75,8 +75,10 @@ public class UptimeClientHandler extends SimpleChannelInboundHandler<Object>
     void println(String msg)
     {
         if (startTime < 0) {
+            System.out.println("Current thread is : " + Thread.currentThread().getName());
             System.err.format("[SERVER IS DOWN] %s%n", msg);
         } else {
+            System.out.println("Current thread is : " + Thread.currentThread().getName());
             System.err.format("[UPTIME: %5ds] %s%n", (System.currentTimeMillis() - startTime) / 1000, msg);
         }
     }
