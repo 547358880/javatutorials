@@ -16,4 +16,13 @@
 
   <name>on-java8</name>
 
+  <build>
+    <!-- resources-->
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+  </build>
+
 </project>
