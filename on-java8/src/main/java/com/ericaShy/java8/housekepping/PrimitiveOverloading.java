@@ -2,6 +2,15 @@ package com.ericaShy.java8.housekepping;
 
 /**
  * 重载和基本类型(Primitive)
+ *
+ * 基本类型可以从较小的类型转换成较大的类型
+ *
+ * 备注：当两个数值进行运算时：
+ * 1. 如果两个操作数有一个是double类型，另外一个操作数就会转换为double类型
+ * 2. 否则,如果其中一个操作数是float类型，另外一个操作数就会转换为float类型
+ * 3. 否则，如果其中一个操作数是long类型， 另外一个操作数就会转换成long类型
+ * 4. 否则，两个操作数都将被转换为int类型
+ *
  */
 public class PrimitiveOverloading {
 

@@ -7,7 +7,7 @@ package com.ericaShy.jvm;
  * 2. 如果这个对象被判定有必要执行finalize()方法， 那么这个对象会被放置在一个叫做F-Queue的队列之中，并且稍后由一个虚拟机自动建立的，低优先级的Finalizer线程去执行
  * finalize()方法是对象跳脱死亡命运的最后一次机会，稍后GC将对F-Queue中的对象进行第二次标记
  *
- * 参考: 深入理解Java虚拟机(P87)
+ * 参考: 深入理解Java虚拟机(P67)
  */
 
 import com.ericaShy.java8.onjava.Nap;
@@ -15,7 +15,7 @@ import com.ericaShy.java8.onjava.Nap;
 /**
  * 此代码演示两点
  * 1. 对象可以在被GC自我救赎
- * 2. 这种机会只有一次, 因为一个对象的finalize()方法最多智慧被系统调用一次
+ * 2. 这种机会只有一次, 因为一个对象的finalize()方法最多只会被系统调用一次
  */
 public class FinalizeEscapeGC {
 
