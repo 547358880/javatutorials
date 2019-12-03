@@ -3,6 +3,7 @@ package com.ericaShy.java8.typeinfo.pets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Pets {
     public static final PetCreator CREATOR = new LiteralPetCreator();
@@ -25,4 +26,7 @@ public class Pets {
         return result;
     }
 
+    public static Stream<Pet> stream() {
+        return Stream.generate(CREATOR);
+    }
 }
