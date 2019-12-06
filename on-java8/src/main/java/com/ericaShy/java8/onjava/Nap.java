@@ -6,7 +6,7 @@ public class Nap {
 
     public Nap(double t) {      // Seconds
         try {
-            TimeUnit.MILLISECONDS.sleep((int) (5000 * t));
+            TimeUnit.MILLISECONDS.sleep((int) (1000 * t));
         } catch (InterruptedException e) {
             throw  new RuntimeException(e);
         }
