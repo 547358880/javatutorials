@@ -23,7 +23,7 @@ public class EvenChecker implements Runnable {
 
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName());
+//        System.out.println(Thread.currentThread().getName());
         while (!generator.isCanceled()) {
             int val = generator.next();
             if (val % 2 != 0) {

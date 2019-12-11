@@ -1,5 +1,7 @@
 ## 内存
 
+### 内存模型(Java Memory Model, JMM)
+
 ### Java Direct Memory
 相关资料
 - [Java NIO中，关于DirectBuffer，HeapBuffer的疑问？](https://www.zhihu.com/question/57374068/answer/152691891)
