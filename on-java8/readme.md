@@ -6,3 +6,5 @@
 5. [名词解释](docs/definitions.md)
 6. [注解](docs/annotations.md)
 7. [线程](docs/thread.md)
+8. [设计模式](docs/design-pattern.md)
+9. [类加载](docs/class-loader.md)
